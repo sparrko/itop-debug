@@ -1,0 +1,16 @@
+{
+  "config": {
+    "classmap-authoritative": true
+  },
+  "autoload": {
+    "psr-4": {
+      "gransoft\\iTop\\Extension\\": "src"
+    }
+  },
+  "name": "gransoft/gransoft-contract-addition",
+  "type": "itop-extension",
+  "description": "Test extension",
+  "require": {
+    "composer-runtime-api": "^2.0"
+  }
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.6">
+  <classes>
+    <class id="Contract">
+      <fields>
+        <field id="inn" xsi:type="AttributeString" _delta="define">
+          <sql>inn</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="cost_currency" xsi:type="AttributeEnum" _delta="redefine">
+					<values>
+						<value id="dollars">
+							<code>dollars</code>
+						</value>
+						<value id="euros">
+							<code>euros</code>
+						</value>
+            <value id="rubles">
+							<code>rubles</code>
+						</value>
+					</values>
+					<sql>cost_currency</sql>
+					<default_value/>
+					<is_null_allowed>true</is_null_allowed>
+					<display_style>list</display_style>
+				</field>
+      </fields>
+      <presentation>
+        <details _delta="redefine">
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="org_id">
+              <rank>20</rank>
+            </item>
+            <item id="contacts_list">
+              <rank>30</rank>
+            </item>
+            <item id="documents_list">
+              <rank>40</rank>
+            </item>
+            <item id="description">
+              <rank>50</rank>
+            </item>
+            <item id="start_date">
+              <rank>60</rank>
+            </item>
+            <item id="end_date">
+              <rank>70</rank>
+            </item>
+            <item id="cost">
+              <rank>80</rank>
+            </item>
+            <item id="cost_currency">
+              <rank>90</rank>
+            </item>
+            <item id="billing_frequency">
+              <rank>100</rank>
+            </item>
+            <item id="cost_unit">
+              <rank>110</rank>
+            </item>
+            <item id="provider_id">
+              <rank>120</rank>
+            </item>
+            <item id="inn">
+              <rank>130</rank>
+            </item>
+            <item id="status">
+              <rank>140</rank>
+            </item>
+            <item id="contracttype_id">
+              <rank>150</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="CustomerContract">
+			<parent>Contract</parent>
+			<presentation>
+        <details _delta="redefine">
+					<items>
+						<item id="name">
+							<rank>10</rank>
+						</item>
+						<item id="org_id">
+							<rank>20</rank>
+						</item>
+						<item id="contacts_list">
+							<rank>30</rank>
+						</item>
+						<item id="documents_list">
+							<rank>40</rank>
+						</item>
+						<item id="description">
+							<rank>50</rank>
+						</item>
+						<item id="start_date">
+							<rank>60</rank>
+						</item>
+						<item id="end_date">
+							<rank>70</rank>
+						</item>
+						<item id="cost">
+							<rank>80</rank>
+						</item>
+						<item id="cost_currency">
+							<rank>90</rank>
+						</item>
+						<item id="billing_frequency">
+							<rank>100</rank>
+						</item>
+						<item id="cost_unit">
+							<rank>110</rank>
+						</item>
+						<item id="provider_id">
+              <rank>120</rank>
+            </item>
+            <item id="inn">
+              <rank>130</rank>
+            </item>
+						<item id="status">
+							<rank>140</rank>
+						</item>
+						<item id="contracttype_id">
+							<rank>150</rank>
+						</item>
+						<item id="services_list">
+							<rank>160</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="ProviderContract">
+			<parent>Contract</parent>
+			<presentation>
+        <details _delta="redefine">
+					<items>
+						<item id="name">
+							<rank>10</rank>
+						</item>
+						<item id="org_id">
+							<rank>20</rank>
+						</item>
+						<item id="contacts_list">
+							<rank>30</rank>
+						</item>
+						<item id="documents_list">
+							<rank>40</rank>
+						</item>
+						<item id="description">
+							<rank>50</rank>
+						</item>
+						<item id="start_date">
+							<rank>60</rank>
+						</item>
+						<item id="end_date">
+							<rank>70</rank>
+						</item>
+						<item id="contracttype_id">
+							<rank>80</rank>
+						</item>
+						<item id="cost">
+							<rank>90</rank>
+						</item>
+						<item id="cost_currency">
+							<rank>100</rank>
+						</item>
+						<item id="billing_frequency">
+							<rank>110</rank>
+						</item>
+						<item id="cost_unit">
+							<rank>120</rank>
+						</item>
+            <item id="provider_id">
+              <rank>130</rank>
+            </item>
+            <item id="inn">
+              <rank>140</rank>
+            </item>
+						<item id="functionalcis_list">
+							<rank>150</rank>
+						</item>
+						<item id="sla">
+							<rank>160</rank>
+						</item>
+						<item id="coverage">
+							<rank>170</rank>
+						</item>
+						<item id="status">
+							<rank>180</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+  </classes>
+</itop_design>
