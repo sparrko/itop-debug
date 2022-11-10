@@ -1,14 +1,17 @@
-# Created by .ignore support plugin (hsz.mobi)
-log/
-env-toolkit/
-env-production-build/
-conf/toolkit/
-data/cache-production/
-data/cache-toolkit/
-data/datamodel-production.xml
-data/datamodel-toolkit.xml
-data/transactions/
-env-toolkit/
-data/setup/
-node_modules/
-README.md
+# Содержит сгенерированные приложением данные
+/data/**
+!/data/.htaccess
+!/data/index.php
+!/data/web.config
+!/data/exclude.txt
+!/data/.compilation-symlinks
+
+# Содержит файлы журнала приложения
+/log/**
+!/log/.htaccess
+!/log/index.php
+!/log/web.config
+
+# Эти папки (по одной на среду) содержат «скомпилированную» модель данных
+/env-*
+
