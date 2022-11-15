@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<extension format="1.0">
-  <extension_code>gransoft-assign-to-me-ticket</extension_code>
-  <version>1.0.0</version>
-  <label><![CDATA[Кнопка "Забрать себе" в заявки]]></label>
-  <description><![CDATA[Добавляет кнопку "Забрать себе" в заявки, которая назначает данного пользователя агентом заявки, а так же если в настройках пользователя указана "Основная команда", сохраняет ее]]></description>
-  <mandatory>false</mandatory>
-  <more_info_url></more_info_url>
-</extension>
