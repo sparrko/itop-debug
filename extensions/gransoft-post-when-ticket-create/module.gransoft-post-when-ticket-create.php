@@ -10,6 +10,7 @@ SetupWebPage::AddModule(
 		// Identification
 		//
 		'label' => 'POST запрос в API "grancall" при создании заявки',
+		'category' => 'business',
 
 		// Setup
 		//
