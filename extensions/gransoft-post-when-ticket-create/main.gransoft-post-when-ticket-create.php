@@ -33,22 +33,24 @@ class CustomTriggersPlugIn implements iApplicationObjectExtension
                 "link" => utils::GetAbsoluteUrlAppRoot().'pages/UI.php?operation=details&class='.$sClass.'&id='.$oObject->GetKey()
             ];
 
-            $data_string = json_encode($data, JSON_UNESCAPED_UNICODE);
+            // $data_string = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-            $curl = curl_init('https://restapi.grancall.ru/v7.6/project/corebo00000000000o8fcsun7gq29nqc/packet/');
-            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data_string))
-            );
-            curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-            curl_setopt($curl, CURLOPT_USERPWD, "itop:k5iHYtr");
-            $result = curl_exec($curl);
-            curl_close($curl);
+    		// $oCallerProfile = MetaModel::GetObjectFromOQL("SELECT Person AS p WHERE p.id = " . $oObject->Get('caller_id'));
+
+            // $curl = curl_init('https://restapi.grancall.ru/v7.6/project/corebo00000000000o8fcsun7gq29nqc/packet/');
+            // curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            // curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+            // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            // curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            //     'Content-Type: application/json',
+            //     'Content-Length: ' . strlen($data_string))
+            // );
+            // curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+            // curl_setopt($curl, CURLOPT_USERPWD, "itop:k5iHYtr");
+            // $result = curl_exec($curl);
+            // curl_close($curl);
             
-            // die(dump($result));
+            die(dump($data));
         }
     }
 
