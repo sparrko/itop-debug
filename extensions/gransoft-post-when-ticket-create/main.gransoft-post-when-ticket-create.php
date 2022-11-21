@@ -48,7 +48,7 @@ class CustomTriggersPlugIn implements iApplicationObjectExtension
             $result = curl_exec($curl);
             curl_close($curl);
             
-            die(dump($result));
+            // die(dump($result));
         }
     }
 
