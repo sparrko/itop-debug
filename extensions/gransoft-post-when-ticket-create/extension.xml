@@ -2,7 +2,7 @@
 <extension format="1.0">
   <extension_code>gransoft-post-when-ticket-create</extension_code>
   <version>1.0.0</version>
-  <label><![CDATA[POST запрос в API "grancall" при создании заявки]]></label>
+  <label><![CDATA[POST запрос в API "grancall" при создании запроса]]></label>
   <mandatory>false</mandatory>
   <more_info_url></more_info_url>
 </extension>

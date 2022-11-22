@@ -9,14 +9,13 @@ SetupWebPage::AddModule(
 	array(
 		// Identification
 		//
-		'label' => 'POST запрос в API "grancall" при создании заявки',
-		'category' => 'business',
+		'label' => 'POST запрос в API "grancall" при создании запроса',
+		'category' => 'tools',
 
 		// Setup
 		//
 		'dependencies' => array(
 			'itop-config-mgmt/2.0.0',
-			'itop-endusers-devices/2.0.0'
 		),
 		'mandatory' => false,
 		'visible' => true,
