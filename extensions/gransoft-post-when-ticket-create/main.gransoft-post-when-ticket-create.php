@@ -33,18 +33,34 @@ class PostWhenTicketCreateExtension implements iApplicationObjectExtension
                     "SELECT Contact AS c JOIN lnkContactToService AS l ON l.contact_id = c.id JOIN Service AS s ON l.service_id = s.id JOIN UserRequest AS t ON t.service_id = s.id WHERE t.id = " . $oObject->GetKey()));
                 $data = array(); 
                 while ($fetchedRow = $buildingQuery->Fetch()) $data[$fetchedRow->GetKey()] = $fetchedRow->Get("phone"); 
-                
-                // Берем самую старую запись
-                $data = array_reverse($data, true);
-                $phone = current(array_filter($data));
+                // Берем самую старую запись (первую в списке на сайте)
+                $phones = array_reverse($phones, true);
+                $sPhone = current(array_filter($data));
+
+                // Название услуги и подуслуги
+                $buildingQuery = new DBObjectSet(DBObjectSearch::FromOQL_AllData(
+                    "SELECT Service AS S WHERE S.id = " . $oObject->Get('service_id')));
+                $sService = $buildingQuery->Fetch()->Get("name");
+                $buildingQuery = new DBObjectSet(DBObjectSearch::FromOQL_AllData(
+                    "SELECT ServiceSubcategory AS S WHERE S.id = " . $oObject->Get('servicesubcategory_id')));
+                $sSubservice = $buildingQuery->Fetch()->Get("name");
+
+                // Автор тикета
+                $buildingQuery = new DBObjectSet(DBObjectSearch::FromOQL_AllData(
+                    "SELECT Person AS P WHERE P.id = " . $oObject->Get('caller_id')));
+                $oPerson = $buildingQuery->Fetch();
+                $sAutorFullname = $oPerson->Get("name") . " " . $oPerson->Get("first_name");
 
                 // Если удалось найти у кого то номер телефона то продолжаем
-                if ($phone !== false) {
+                if ($sPhone !== false) {
                     $data = [
                         "id" => $oObject->Get('ref'), 
-                        "MOBILE" => $phone,
+                        "MOBILE" => $sPhone,
                         "title" => $oObject->Get('title'),
-                        "link" => utils::GetAbsoluteUrlAppRoot().'pages/UI.php?operation=details&class='.$sClass.'&id='.$oObject->GetKey()
+                        "link" => utils::GetAbsoluteUrlAppRoot().'pages/UI.php?operation=details&class='.$sClass.'&id='.$oObject->GetKey(),
+                        "ticket" => $oObject->Get('title'),
+                        "usluga" => $sSubservice . " (" . $sService . ")", 
+                        "avtor" => $sAutorFullname
                     ];
     
                     $data_string = json_encode($data, JSON_UNESCAPED_UNICODE);
