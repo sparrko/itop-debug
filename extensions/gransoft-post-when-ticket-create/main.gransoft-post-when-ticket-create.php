@@ -56,7 +56,7 @@ class PostWhenTicketCreateExtension implements iApplicationObjectExtension
                     $data = [
                         "id" => $oObject->Get('ref'), 
                         "MOBILE" => $sPhone,
-                        "title" => $oObject->Get('title'),
+                        "title" => $oObject->Get('ref'),
                         "link" => utils::GetAbsoluteUrlAppRoot().'pages/UI.php?operation=details&class='.$sClass.'&id='.$oObject->GetKey(),
                         "ticket" => $oObject->Get('ref'),
                         "usluga" => $sSubservice . " (" . $sService . ")", 
