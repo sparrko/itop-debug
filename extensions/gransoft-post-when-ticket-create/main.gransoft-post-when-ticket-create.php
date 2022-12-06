@@ -58,9 +58,10 @@ class PostWhenTicketCreateExtension implements iApplicationObjectExtension
                         "MOBILE" => $sPhone,
                         "title" => $oObject->Get('title'),
                         "link" => utils::GetAbsoluteUrlAppRoot().'pages/UI.php?operation=details&class='.$sClass.'&id='.$oObject->GetKey(),
-                        "ticket" => $oObject->Get('title'),
+                        "ticket" => $oObject->Get('ref'),
                         "usluga" => $sSubservice . " (" . $sService . ")", 
-                        "avtor" => $sAutorFullname
+                        "avtor" => $sAutorFullname,
+                        "tiket_title" => $oObject->Get('title'),
                     ];
     
                     $data_string = json_encode($data, JSON_UNESCAPED_UNICODE);
