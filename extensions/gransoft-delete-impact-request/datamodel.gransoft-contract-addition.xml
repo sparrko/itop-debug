@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.6">
+  <classes>
+    <class id="lnkFunctionalCIToTicket">
+      <fields>
+        <field id="impact" _delta="delete"></field>
+      </fields>
+	  </class>
+
+    
+    
+    <class id="UserRequest">
+      <fields>
+        <field id="impact" _delta="delete"></field>
+        <field id="priority">
+          <dependencies>
+            <attribute id="impact" _delta="delete"/>
+          </dependencies>
+        </field>
+      </fields>
+      <lifecycle>
+        <states>
+          <state id="resolved">
+            <flags>
+              <attribute id="impact" _delta="delete"></attribute>
+            </flags>
+          </state>
+        </states>
+      </lifecycle>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col2">
+              <items>
+                <item id="fieldset:Ticket:Type">
+                  <items>
+                    <item id="impact" _delta="delete"></item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+        <search>
+          <items>
+            <item id="impact" _delta="delete"></item>
+          </items>
+        </search>
+      </presentation>
+	  </class>
+  </classes>
+
+	<module_designs>
+		<module_design id="itop-portal">
+			<forms>
+				<form id="ticket-create" _delta="redefine">
+					<class>Ticket</class>
+					<properties>
+						<navigation_rules>
+							<submit>
+								<default>go-to-open-requests</default>
+							</submit>
+						</navigation_rules>
+					</properties>
+					<fields />
+					<twig>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="form_field" data-field-id="service_id" data-field-flags="mandatory">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form_field" data-field-id="servicesubcategory_id" data-field-flags="mandatory">
+								</div>
+							</div>
+						</div>
+						<div id="service_details_placeholder">
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form_field" data-field-id="urgency">
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="form_field" data-field-id="title">
+							</div>
+							<div class="form_field" data-field-id="description">
+							</div>
+							<div class="form_field" data-field-id="contacts_list">
+							</div>
+						</div>
+					</twig>
+					<modes>
+						<mode id="create"/>
+					</modes>
+				</form>
+				<form id="ticket-edit" _delta="redefine">
+					<class>Ticket</class>
+					<properties>
+						<navigation_rules>
+							<submit>
+								<default>go-to-open-requests</default>
+							</submit>
+						</navigation_rules>
+					</properties>
+					<fields></fields>
+					<twig>
+						<div class="row">
+							<div class="col-sm-7">
+								<fieldset>
+									<legend>{{'Ticket:baseinfo'|dict_s}}</legend>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="title" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="service_id" data-field-flags="read_only"></div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="caller_id" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="servicesubcategory_id" data-field-flags="read_only"></div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form_field" data-field-id="description" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="solution" data-field-flags="read_only"></div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="user_satisfaction" data-field-flags="read_only"></div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="user_comment" data-field-flags="read_only"></div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="col-sm-5">
+								<fieldset>
+									<legend>{{'Ticket:Type'|dict_s}} &amp; {{'Ticket:date'|dict_s}}</legend>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="status" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="urgency" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="priority" data-field-flags="read_only"></div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form_field" data-field-id="start_date" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="last_update" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="resolution_date" data-field-flags="read_only"></div>
+										<div class="form_field" data-field-id="agent_id" data-field-flags="read_only"></div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div>
+							<div class="form_field" data-field-id="contacts_list"></div>
+							<div class="form_field" data-field-id="public_log"></div>
+						</div>
+					</twig>
+					<modes>
+						<mode id="edit"/>
+						<mode id="view"/>
+					</modes>
+				</form>
+      </forms>
+    </module_design>
+  </module_designs>
+
+</itop_design>
